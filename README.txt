@@ -6,6 +6,7 @@ Arduino Nano - Morse Code Project V5
 
 This version ()
 ****************************************************************
+
 This device is an automatic morse code keyer (AMK). It 
 functions on an arduino nano with several other components. Two 
 AMK units are required for communication, both units 
@@ -13,6 +14,9 @@ independently encode and decode messages. The first function
 encodes serial input from a PC into morse and the second decodes 
 recieved messages back into legible alphanumberic text printed 
 to the serial viewer. 
+
+IMPORTANT - this design has not been stress tested with two AMKs
+yet. There may be some errors that arise that I haven't noted. 
 
 QUICK MORSE FACTS FOR USERS: 
 
@@ -27,9 +31,9 @@ UNIT: ___ms - NOTE, THIS VALUE ABSOLUTELY MUST MATCH ACROSS BOTH
 ****************************************************************
 DIAGRAM - ARDUINO NANO 
 ****************************************************************
-                     ┌───┐ ┌─────┐                       
+                     ┌───┐ ┌─────┐(SENDING LED)                  
                      │[R]├─┤[LED]├───────────────┐       
-                     └─▲─┘ └─────┘               │       
+                     └─▲─┘ └─────┘(RECEIVING LED)│       
                        │  ┌───┐ ┌─────┐          │       
                        │  │[R]├─┤[LED]├──────────┤       
 ┌──────┌─────┐──────┐  │  └─▲─┘ └─────┘          │       
@@ -43,7 +47,7 @@ DIAGRAM - ARDUINO NANO
 │[A04]  CNTRL  [D05]│◄─┘││    ┌───┐ ┌─────┐      │       
 │[A05]         [D04]┼───┘│    │[R]├─┤[LED]├──────┤       
 │[A06]  {RST}  [D03]┼────┘    └─▲─┘ └─────┘      │       
-│[A07]   BTN   [D02]┼───────────┘                │       
+│[A07]   BTN   [D02]┼───────────┘ (Signal LED)   │       
 │[5 V]         [GND]│◄───────────────────────────┘       
 │[RST] P P R T [RST]│                                    
 │[GND] 1 W X X [RXD]│                                    
